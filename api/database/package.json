@@ -1,0 +1,15 @@
+{
+  "name": "database",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tables.js",
+  "scripts": {
+    "migrate": "node ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "pg": "^7.12.1"
+  }
+}
