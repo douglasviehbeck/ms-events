@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -6,6 +6,7 @@ export const Container = styled.div`
   justify-content: center;
   height: 100vh;
   text-shadow: 1px solid black;
+  flex-flow: column;
 
   form {
     display: inherit;
@@ -30,7 +31,7 @@ export const Container = styled.div`
   small {
     margin: 15px 0;
     font-size: 16px;
-    align-self: ${props => (props.right ? 'flex-end' : 'center')};
+    align-self: ${props => (props.right ? "flex-end" : "center")};
     cursor: pointer;
   }
 
@@ -49,4 +50,10 @@ export const Container = styled.div`
     overflow: auto;
     flex-flow: column;
   }
+`;
+
+export const Checkbox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
