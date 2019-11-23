@@ -1,15 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-import { Container } from "./styles";
+// import api from '../../services/api';
+
+import { IFrame } from "./styles";
 
 export default function Certificate({ match }) {
+  const [source, setSource] = useState();
+
   useEffect(() => {
-    const {
-      params: { certificateId }
-    } = match;
+    async function downloadCertificate() {
+      const {
+        params: { certificateId }
+      } = match;
 
-    alert(certificateId);
-  }, []);
+      // const response = await api.get(`/certificates/${certificateId}`);
+      // setSource(response);
 
-  return <Container>oi</Container>;
+      setSource("https://www.univates.br");
+
+      console.log(certificateId);
+    }
+
+    downloadCertificate();
+  }, [match]);
+
+  return <IFrame title="Certificado" src={source} />;
 }

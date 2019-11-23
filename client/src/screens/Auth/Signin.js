@@ -21,8 +21,7 @@ export default function Signin({ history }) {
     // localStorage.setItem("token", response.data.token);
 
     localStorage.setItem("token", true);
-
-    history.push("/events");
+    window.location.reload();
   }
 
   return (
