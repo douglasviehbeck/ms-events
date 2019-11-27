@@ -3,12 +3,14 @@ require('dotenv').config({path:__dirname + '/.env'});
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const UserController = require('./UserController');
+const SubscriptionController = require('./SubscriptionController');
+const auth = require('./Authentication');
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(auth.verify);
 
-app.post('/users', UserController.create);
+app.get('/subscriptions', SubscriptionController.get);
 
-app.listen(8022, () => console.log('UP'));
+app.listen(8024, () => console.log('UP'));

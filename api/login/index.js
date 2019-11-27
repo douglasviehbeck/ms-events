@@ -12,4 +12,4 @@ app.use(express.json());
 app.post('/authenticate', LoginController.authenticate);
 app.post('/verify', LoginController.verify);
 
-app.listen(8021, () => console.log("UP"));
+app.listen(8021, () => console.log('UP'));

@@ -30,10 +30,10 @@ module.exports = {
     },
     verify: (req, res) => {
         jwt.verify(req.body.token, process.env.SECRET, async (err, decoded) => {
-            if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
+            if (err) return res.status(200).send({ auth: false, message: 'Failed to authenticate token.' });
             const db = await DBHelper.getConnection();
             
-            let user = (await db.query('SELECT name, email, cpf FROM users WHERE id = $1', [decoded.id])).rows[0];
+            let user = (await db.query('SELECT id, name, email, cpf FROM users WHERE id = $1', [decoded.id])).rows[0];
 
             res.status(200).send({ auth: true, user });
         });

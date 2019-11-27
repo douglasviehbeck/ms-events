@@ -27,6 +27,7 @@ const db = new Client({
         CREATE TABLE events (
             id SERIAL NOT NULL,
             name VARCHAR(255) NOT NULL,
+            color CHAR(7) NOT NULL,
             location VARCHAR(255) NOT NULL,
             start_date TIMESTAMP NOT NULL,
             end_date TIMESTAMP NOT NULL,
@@ -49,6 +50,7 @@ const db = new Client({
     await db.query(`
         CREATE TABLE certificates (
             id SERIAL NOT NULL,
+            uuid UUID NOT NULL,
             subscription_id INT NOT NULL,
             created_at TIMESTAMP NOT NULL,
             PRIMARY KEY (id),

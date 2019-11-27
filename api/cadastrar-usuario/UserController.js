@@ -15,7 +15,7 @@ module.exports = {
                 hash,
             ])).rows[0].id;
 
-            let user = (await db.query('SELECT name, email, cpf FROM users WHERE id = $1', [userId])).rows[0]
+            let user = (await db.query('SELECT id, name, email, cpf FROM users WHERE id = $1', [userId])).rows[0];
 
             res.status(200).send({ user });
         });

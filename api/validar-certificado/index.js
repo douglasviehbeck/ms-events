@@ -3,12 +3,12 @@ require('dotenv').config({path:__dirname + '/.env'});
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const UserController = require('./UserController');
+const CertificateController = require('./CertificateController');
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.post('/users', UserController.create);
+app.get('/certificates/:uuid', CertificateController.validate);
 
-app.listen(8022, () => console.log('UP'));
+app.listen(8029, () => console.log('UP'));
